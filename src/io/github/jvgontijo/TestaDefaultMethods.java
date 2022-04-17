@@ -13,11 +13,14 @@ public class TestaDefaultMethods {
 		palavras.add("essa");
 
 		//palavras.sort((String s1, String s2) -> Integer.compare(s1.length(), s2.length()));
-
+		//fazendo sort por ordem alfabetica
+		//palavras.sort((String s1, String s2) -> s1.compareTo(s2));
+		
+		
 		palavras.sort(Comparator.comparing(String::length));
 		
-		palavras.forEach(s -> System.out.println(s));
-		
+		//palavras.forEach(s -> System.out.println(s));
+		palavras.forEach(System.out::println);
 		
 //		new Thread(new Runnable() {
 //
