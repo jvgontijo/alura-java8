@@ -15,13 +15,16 @@ public class TestaDefaultMethods {
 
 		palavras.forEach(s -> System.out.println(s));
 		
-		new Thread(new Runnable() {
-
-		    @Override
-		    public void run() {
-		        System.out.println("Executando um Runnable");
-		    }
-
-		}).start();
+		
+//		new Thread(new Runnable() {
+//
+//		    @Override
+//		    public void run() {
+//		        System.out.println("Executando um Runnable");
+//		    }
+//
+//		}).start();
+		
+		new Thread(() -> System.out.println("Executando um Runnable")).start();
 	}
 }
