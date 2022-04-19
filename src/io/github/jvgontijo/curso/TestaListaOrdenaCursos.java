@@ -3,6 +3,7 @@ package io.github.jvgontijo.curso;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class TestaListaOrdenaCursos {
 	public static void main(String[] args) {
@@ -15,8 +16,10 @@ public class TestaListaOrdenaCursos {
 //		cursos.sort(Comparator.comparing(Curso::getAlunos));
 //		cursos.forEach(c -> System.out.println(c.getNome()));
 		
-		cursos.stream()
-			.filter(c -> c.getAlunos() > 50)
-			.forEach(c -> System.out.println(c.getNome()));
+//		cursos.stream()
+//			.filter(c -> c.getAlunos() > 50)
+//			.forEach(c -> System.out.println(c.getNome()));
+		
+		cursos.stream().map(Curso::getNome).forEach(System.out::println);
 	}
 }
