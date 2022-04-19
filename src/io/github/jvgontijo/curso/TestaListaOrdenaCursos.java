@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalDouble;
+import java.util.stream.Collector;
 import java.util.stream.Stream;
 
 public class TestaListaOrdenaCursos {
@@ -21,12 +23,13 @@ public class TestaListaOrdenaCursos {
 //			.filter(c -> c.getAlunos() > 50)
 //			.forEach(c -> System.out.println(c.getNome()));
 		
-		Optional<Curso> primeiroCursoEncontrado = cursos.stream()
-		.filter(c -> c.getAlunos() > 50)
-		.findFirst();
+//		Optional<Curso> primeiroCursoEncontrado = cursos.stream()
+//		.filter(c -> c.getAlunos() > 50)
+//		.findFirst();
+//		primeiroCursoEncontrado.ifPresent(c -> System.out.println(c.getNome()));
 		
-		primeiroCursoEncontrado.ifPresent(c -> System.out.println(c.getNome()));
-		
+		OptionalDouble mediaDosAlunos = cursos.stream().mapToInt(Curso::getAlunos).average();
+		System.out.println(mediaDosAlunos);
 		
 //		cursos.stream()
 //			.map(Curso::getNome)
