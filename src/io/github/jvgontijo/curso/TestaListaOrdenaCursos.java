@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TestaListaOrdenaCursos {
@@ -28,11 +29,17 @@ public class TestaListaOrdenaCursos {
 //		.findFirst();
 //		primeiroCursoEncontrado.ifPresent(c -> System.out.println(c.getNome()));
 		
-		OptionalDouble mediaDosAlunos = cursos.stream().mapToInt(Curso::getAlunos).average();
-		System.out.println(mediaDosAlunos);
+//		OptionalDouble mediaDosAlunos = cursos.stream().mapToInt(Curso::getAlunos).average();
+//		System.out.println(mediaDosAlunos);
 		
 //		cursos.stream()
 //			.map(Curso::getNome)
 //			.forEach(System.out::println);
+		
+		
+		List<Curso> list = cursos.stream()
+				.filter(c -> c.getAlunos() > 50)
+				.collect(Collectors.toList());
+		System.out.println(list);
 	}
 }
