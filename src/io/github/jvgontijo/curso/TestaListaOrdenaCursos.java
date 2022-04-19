@@ -12,7 +12,11 @@ public class TestaListaOrdenaCursos {
 		cursos.add(new Curso("JavaScript", 113));
 		cursos.add(new Curso("C", 55));
 		
-		cursos.sort(Comparator.comparing(Curso::getAlunos));
-		cursos.forEach(c -> System.out.println(c.getNome()));
+//		cursos.sort(Comparator.comparing(Curso::getAlunos));
+//		cursos.forEach(c -> System.out.println(c.getNome()));
+		
+		cursos.stream()
+			.filter(c -> c.getAlunos() > 50)
+			.forEach(c -> System.out.println(c.getNome()));
 	}
 }
